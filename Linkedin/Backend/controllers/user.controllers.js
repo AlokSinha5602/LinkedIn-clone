@@ -63,7 +63,7 @@ export const getprofile=async (req,res)=>{
 export const search=async (req,res)=>{
     try {
         let {query}=req.query
-        if(!query){
+        if(!query || query.trim() === ""){
 return res.status(400).json({message:"query is required"})
         }
         let users=await User.find({
